@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const Symbols = (props) => {
@@ -17,18 +17,7 @@ const Symbols = (props) => {
 };
 
 const Card = (props) => {
-  //const isNumber = !isNaN(props.number);
-  //let cardFace;
   const [cardFace, setCardFace] = useState(props.flipped);
-
-  /*  console.log(cardFace);
-
-  if (props.flipped) {
-    cardFace = "card flipped";
-  } else {
-    cardFace = "card";
-  }
-  */
 
   return (
     <div
@@ -55,45 +44,44 @@ const Card = (props) => {
   );
 };
 
-class Deck extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: [],
-    };
-  }
+const Deck = (props) => {
+  const [deck, setDeck] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     (async () => {
       let cards = await (
-        await fetch(`http://localhost:3000/${this.props.path}`)
+        await fetch(`http://localhost:3000/${props.path}`)
       ).json();
-      this.setState({ cards });
+      setDeck({ cards });
     })();
-  }
+  });
 
-  render() {
-    return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <div className={this.props.title}>
-          {this.state.cards.map((card, index) => {
-            const number = card.slice(0, -1);
-            const symbol = card.slice(-1);
-            return (
-              <Card
-                key={index}
-                number={number}
-                symbol={symbol}
-                flipped={index < this.props.flipped}
-              />
-            );
-          })}
+  return (
+    <div>
+      {deck.length === 0 ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          <h2>{props.title}</h2>
+          <div className={props.title}>
+            {deck.cards.map((card, index) => {
+              const number = card.slice(0, -1);
+              const symbol = card.slice(-1);
+              return (
+                <Card
+                  key={index}
+                  number={number}
+                  symbol={symbol}
+                  flipped={index < props.flipped}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
-    );
-  }
-}
+      )}
+    </div>
+  );
+};
 
 function App() {
   return (
