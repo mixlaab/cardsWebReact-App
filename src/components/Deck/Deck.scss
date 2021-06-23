@@ -1,0 +1,23 @@
+h1,
+h2 {
+  font-family: Gotham Narrow SSm A, Gotham Narrow SSm B, Rubik, Lato,
+    Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+h1,
+h2,
+div {
+  text-align: center;
+}
+
+.article-title {
+  font-size: clamp(1.2rem, calc(1rem + 3.5vw), 4rem);
+}
