@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 
 const Symbols = (props) => {
   const isNumber = !isNaN(props.number);
   let cardContent;
+  if (props.number === "A") {
+    cardContent = <div className="qty">{props.symbol}</div>;
+  }
   if (isNumber) {
     cardContent = new Array(parseInt(props.number))
       .fill(props.symbol)
@@ -54,7 +57,7 @@ const Deck = (props) => {
       ).json();
       setDeck({ cards });
     })();
-  });
+  }, [props.path]);
 
   return (
     <div>
