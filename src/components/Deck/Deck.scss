@@ -1,5 +1,4 @@
-h1,
-h2 {
+h1 {
   font-family: Gotham Narrow SSm A, Gotham Narrow SSm B, Rubik, Lato,
     Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
   font-style: normal;
@@ -9,11 +8,10 @@ h2 {
 }
 
 h2 {
+  @extend h1;
   font-size: xx-large;
 }
 
-h1,
-h2,
 div {
   text-align: center;
 }
