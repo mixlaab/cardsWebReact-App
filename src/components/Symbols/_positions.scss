@@ -1,0 +1,89 @@
+@mixin top {
+  top: 16%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin bottom {
+  bottom: 16%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}
+
+@mixin center($size) {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale($size);
+}
+
+@mixin top-left {
+  top: 16%;
+  left: 25%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin bottom-left {
+  bottom: 16%;
+  left: 25%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}
+
+@mixin top-right {
+  top: 16%;
+  left: 75%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin bottom-right {
+  bottom: 16%;
+  left: 75%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}
+
+@mixin middle-left {
+  top: 50%;
+  left: 25%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin middle-right {
+  top: 50%;
+  left: 75%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin center-top {
+  top: 33%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin center-bottom {
+  bottom: 33%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}
+
+@mixin middletop-left {
+  top: 38.5%;
+  left: 25%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin middlebottom-left {
+  bottom: 38.5%;
+  left: 25%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}
+
+@mixin middletop-right {
+  top: 38.5%;
+  left: 75%;
+  transform: translateX(-50%) translateY(-50%) scale(1.5);
+}
+
+@mixin middlebottom-right {
+  bottom: 38.5%;
+  left: 75%;
+  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+}

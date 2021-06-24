@@ -1,208 +1,165 @@
-.symbols {
-  position: relative;
-  height: 100%;
-}
+@import "./positions";
 
-.symbols div {
-  position: absolute;
-}
+.card {
+  .symbols {
+    position: relative;
+    height: 100%;
+    div {
+      position: absolute;
+    }
+  }
 
-.card[number="A"] .symbols div {
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(3);
-}
+  &[number="A"] {
+    .symbols div {
+      @include center(3);
+    }
+  }
 
-.card[number="2"] .symbols div:nth-child(1),
-.card[number="3"] .symbols div:nth-child(1) {
-  top: 16%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="2"],
+  &[number="3"] {
+    .symbols div {
+      &:nth-child(1) {
+        @include top();
+      }
+      &:nth-child(2) {
+        @include bottom();
+      }
+    }
+  }
 
-.card[number="2"] .symbols div:nth-child(2),
-.card[number="3"] .symbols div:nth-child(3) {
-  bottom: 16%;
-  left: 50%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
+  &[number="3"],
+  &[number="5"],
+  &[number="9"] {
+    .symbols div {
+      &:last-child {
+        @include center(1.5);
+      }
+    }
+  }
 
-.card[number="3"] .symbols div:nth-child(2),
-.card[number="5"] .symbols div:nth-child(5),
-.card[number="9"] .symbols div:nth-child(9) {
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="4"],
+  &[number="5"],
+  &[number="6"],
+  &[number="7"],
+  &[number="8"],
+  &[number="9"],
+  &[number="10"] {
+    .symbols div {
+      &:nth-child(1) {
+        @include top-left();
+      }
+      &:nth-child(2) {
+        @include bottom-left();
+      }
+      &:nth-child(3) {
+        @include top-right();
+      }
+      &:nth-child(4) {
+        @include bottom-right();
+      }
+    }
+  }
 
-.card[number="4"] .symbols div:nth-child(1),
-.card[number="5"] .symbols div:nth-child(1),
-.card[number="9"] .symbols div:nth-child(1),
-.card[number="10"] .symbols div:nth-child(1) {
-  top: 16%;
-  left: 25%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="6"],
+  &[number="7"],
+  &[number="8"] {
+    .symbols div {
+      &:nth-child(5) {
+        @include middle-left();
+      }
+      &:nth-child(6) {
+        @include middle-right();
+      }
+      &:nth-child(7) {
+        @include center-top();
+      }
+      &:nth-child(8) {
+        @include center-bottom();
+      }
+    }
+  }
 
-.card[number="4"] .symbols div:nth-child(2),
-.card[number="5"] .symbols div:nth-child(2),
-.card[number="9"] .symbols div:nth-child(2),
-.card[number="10"] .symbols div:nth-child(2) {
-  bottom: 16%;
-  left: 25%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
+  &[number="9"],
+  &[number="10"] {
+    .symbols div {
+      &:nth-child(5) {
+        @include middletop-left();
+      }
+      &:nth-child(6) {
+        @include middlebottom-left();
+      }
+      &:nth-child(7) {
+        @include middletop-right();
+      }
+      &:nth-child(8) {
+        @include middlebottom-right();
+      }
+    }
+  }
 
-.card[number="4"] .symbols div:nth-child(3),
-.card[number="5"] .symbols div:nth-child(3),
-.card[number="9"] .symbols div:nth-child(3),
-.card[number="10"] .symbols div:nth-child(3) {
-  top: 16%;
-  left: 75%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="10"] {
+    .symbols div {
+      &:nth-child(9) {
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(1.5);
+      }
+      &:nth-child(10) {
+        bottom: 25%;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
+      }
+    }
+  }
 
-.card[number="4"] .symbols div:nth-child(4),
-.card[number="5"] .symbols div:nth-child(4),
-.card[number="9"] .symbols div:nth-child(4),
-.card[number="10"] .symbols div:nth-child(4) {
-  bottom: 16%;
-  left: 75%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
+  &[number="J"],
+  &[number="Q"],
+  &[number="K"] {
+    .symbols {
+      background-image: url("./images/cards_transparent.png");
+      background-size: 326px 538px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(1),
-.card[number="7"] .symbols div:nth-child(1),
-.card[number="8"] .symbols div:nth-child(1) {
-  top: 16%;
-  left: 25%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="J"] {
+    .symbols {
+      background-position-x: -6px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(2),
-.card[number="7"] .symbols div:nth-child(2),
-.card[number="8"] .symbols div:nth-child(2) {
-  bottom: 16%;
-  left: 25%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
+  &[number="Q"] {
+    .symbols {
+      background-position-x: -112px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(3),
-.card[number="7"] .symbols div:nth-child(3),
-.card[number="8"] .symbols div:nth-child(3) {
-  top: 50%;
-  left: 25%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[number="K"] {
+    .symbols {
+      background-position-x: -219px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(4),
-.card[number="7"] .symbols div:nth-child(4),
-.card[number="8"] .symbols div:nth-child(4) {
-  top: 16%;
-  left: 75%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[symbol="♣"] {
+    .symbols {
+      background-position-y: -403px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(5),
-.card[number="7"] .symbols div:nth-child(5),
-.card[number="8"] .symbols div:nth-child(5) {
-  bottom: 16%;
-  left: 75%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
+  &[symbol="♦"] {
+    .symbols {
+      background-position-y: -808px;
+    }
+  }
 
-.card[number="6"] .symbols div:nth-child(6),
-.card[number="7"] .symbols div:nth-child(6),
-.card[number="8"] .symbols div:nth-child(6) {
-  top: 50%;
-  left: 75%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
+  &[symbol="♥"] {
+    .symbols {
+      background-position-y: -675px;
+    }
+  }
 
-.card[number="7"] .symbols div:nth-child(7),
-.card[number="8"] .symbols div:nth-child(7) {
-  top: 33%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
-
-.card[number="8"] .symbols div:nth-child(8) {
-  bottom: 33%;
-  left: 50%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
-
-.card[number="9"] .symbols div:nth-child(5),
-.card[number="10"] .symbols div:nth-child(5) {
-  top: 38.5%;
-  left: 25%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
-
-.card[number="9"] .symbols div:nth-child(6),
-.card[number="10"] .symbols div:nth-child(6) {
-  bottom: 38.5%;
-  left: 25%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
-
-.card[number="9"] .symbols div:nth-child(7),
-.card[number="10"] .symbols div:nth-child(7) {
-  top: 38.5%;
-  left: 75%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
-
-.card[number="9"] .symbols div:nth-child(8),
-.card[number="10"] .symbols div:nth-child(8) {
-  bottom: 38.5%;
-  left: 75%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
-
-.card[number="10"] .symbols div:nth-child(9) {
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%) scale(1.5);
-}
-
-.card[number="10"] .symbols div:nth-child(10) {
-  bottom: 25%;
-  left: 50%;
-  transform: translateX(-50%) translateY(50%) scale(1.5) rotate(0.5turn);
-}
-
-.card[number="J"] .symbols,
-.card[number="Q"] .symbols,
-.card[number="K"] .symbols {
-  background-image: url("./images/cards_transparent.png");
-  background-size: 326px 538px;
-}
-
-.card[number="J"] .symbols {
-  background-position-x: -6px;
-}
-
-.card[number="Q"] .symbols {
-  background-position-x: -112px;
-}
-
-.card[number="K"] .symbols {
-  background-position-x: -219px;
-}
-
-.card[symbol="♣"] .symbols {
-  background-position-y: -403px;
-}
-
-.card[symbol="♦"] .symbols {
-  background-position-y: -808px;
-}
-
-.card[symbol="♥"] .symbols {
-  background-position-y: -675px;
-}
-
-.card[symbol="♠"] .symbols {
-  background-position-y: -542px;
+  &[symbol="♠"] {
+    .symbols {
+      background-position-y: -542px;
+    }
+  }
 }
